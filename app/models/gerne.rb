@@ -1,0 +1,2 @@
+class Gerne < ApplicationRecord
+end
