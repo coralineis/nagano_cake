@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'about' => 'homes#about'
     resources :items, only: [:index, :show]
+    resources :cart_items, only: [:create, :index, :update, :destroy, :destroy_all]
+    resources :orders, only: [:new, :confirm, :complete, :complete, :create, :index, :show]
   end
   devise_for :admins, skip: [:registrations, :password], controllers: {
     sessions: "admin/sessions"
