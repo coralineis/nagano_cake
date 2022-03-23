@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
     root to: 'homes#top'
     resources :items, except: [:destroy]
+    resources :genres, only: [:index, :create, :edit, :update]
 
   end
 

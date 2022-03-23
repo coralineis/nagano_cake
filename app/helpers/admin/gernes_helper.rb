@@ -1,0 +1,2 @@
+module Admin::GernesHelper
+end
