@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show]
     resources :cart_items, only: [:create, :index, :update, :destroy, :destroy_all]
     resources :orders, only: [:new, :confirm, :complete, :complete, :create, :index, :show]
+    resources :order_details, only: [:index, :edit, :create, :update, :destroy]
   end
   devise_for :admins, skip: [:registrations, :password], controllers: {
     sessions: "admin/sessions"
