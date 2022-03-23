@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <h2>ジャンル一覧</h2>
+
+    <h3>New Genre</h3>
+    <%= form_with model: @genre do |f| %>
+      <h4>ジャンル名</h4>
+        <%= f.text_field :name %>
+      <%= f.submit 'Create Genre' %>
+    <% end %>
+  </div>
+</div>
