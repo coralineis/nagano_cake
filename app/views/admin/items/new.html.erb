@@ -19,7 +19,12 @@
         <%= f.text_field :price, class: 'form-control' %>
       </div>
       <div class="form-group">
-        <%= f.select :is_active
+        <labal for="item_status">販売ステータス</labal>
+        <% if @item.is_active %>
+          <%= link_to "販売中" %>
+        <% else %>
+          <%= link_to "完売" %>
+        <% end %>
       </div>
       <div class="form-group">
         <%= f.submit "Create Item", class: 'btn btn-success' %>
