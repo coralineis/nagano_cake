@@ -4,7 +4,7 @@
     <table class="table table-hover table-inverse">
       <thead>
         <tr>
-          <th>ジャンルID</th>
+          <th>ジャンル</th>
           <th></th>
           <th>商品名</th>
           <th>説明</th>
@@ -17,7 +17,7 @@
           <tr>
             <td></td>
             <td><%= attachment_image_tag item, :image, format: "jpeg", size: "50*50" %></td>
-            <td><%= item.name %></td>
+            <td><%= link_to item.name, admin_item_path(item.id) %></td>
             <td><%= item.introduction %></td>
             <td><%= item.price %></td>
             <td></td>
