@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h2 class="mt-3">商品新規登録</h2>
+    <h2 class="mt-3 offset-1">商品新規登録</h2>
     <%= form_with model: @item do |f| %>
       <div class="form-group">
         <label for="item_image">商品イメージ</label>
@@ -20,11 +20,6 @@
       </div>
       <div class="form-group">
         <labal for="item_status">販売ステータス</labal>
-        <% if @item.is_active %>
-          <%= link_to "販売中" %>
-        <% else %>
-          <%= link_to "完売" %>
-        <% end %>
       </div>
       <div class="form-group">
         <%= f.submit "Create Item", class: 'btn btn-success' %>
