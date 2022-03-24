@@ -1,2 +1,29 @@
-<h1>Admin::Items#index</h1>
-<p>Find me in app/views/admin/items/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h1>商品一覧</h1>
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th>ジャンルID</th>
+          <th></th>
+          <th>商品名</th>
+          <th>説明</th>
+          <th>税抜き価格</th>
+          <th>販売ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= @items.each do |item| %>
+          <tr>
+            <td></td>
+            <td><%= attachment_image_tag item, :image, format: "jpeg", size: "50*50" %></td>
+            <td><%= item.name %></td>
+            <td><%= item.introduction %></td>
+            <td><%= item.price %></td>
+            <td></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
