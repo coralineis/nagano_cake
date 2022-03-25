@@ -12,7 +12,7 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
           <a class="navbar-brand" href="/">
             <span>Nagano Cake</span>
@@ -24,7 +24,7 @@
               <li><%= link_to "注文履歴一覧" %></li>
               <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
               <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-            <% else if customer_signed_id? %>
+            <% elsif customer_signed_in? %>
               <li><%= link_to "マイページ" %></li>
               <li><%= link_to "商品一覧" %></li>
               <li><%= link_to "カート" %></li>
