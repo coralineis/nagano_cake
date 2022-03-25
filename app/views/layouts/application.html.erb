@@ -34,15 +34,16 @@
                 <li><%= link_to "カート" %></li>
                 <li><%= link_to "ログアウト" %></li>
               <% else %>
-                <li class="btn btn-outline-secondary text-dark mr-4" href="/about">About</li>
-                <li class="btn btn-outline-secondary text-dark mr-4" href="/items">商品一覧</li>
-                <li class="btn btn-outline-secondary text-dark mr-4" href="/customers/sign_up">新規登録</li>
-                <li class="btn btn-outline-secondary text-dark" href="/customers/sign_in">ログイン</li>
+                <li><%= link_to "About", about_path, class: "btn btn-outline-secondary text-dark mr-4" %></li>
+                <li><%= link_to "商品一覧", items_path, class: "btn btn-outline-secondary text-dark mr-4" %></li>
+                <li><%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-secondary text-dark mr-4" %></li>
+                <li><%= link_to "ログイン", new_customer_session_path, class: "btn btn-outline-secondary text-dark mr-4" %></li>
               <% end %>
             </ul>
           </div>
         </div>
       </nav>
+      <div style="border-bottom: solid 2px black;"></div>
     </header>
     <%= yield %>
   </body>
