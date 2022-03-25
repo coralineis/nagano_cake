@@ -6,21 +6,23 @@
     <span class="bg-light font-weight-bold px-3 mt-3">会員の方はこちらからログイン</span>
   </div>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+  <div class="row justify-content-center">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :email, "メールアドレス", class: "mr-4" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "naganocake@email.com" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :password %>
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
+      <div class="field">
+        <%= f.label :password, "パスワード", class: "mr-5" %>
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
 
-    <div class="actions">
-      <%= f.submit "ログイン", class: "btn btn-primary px-3" %>
-    </div>
-  <% end %>
+      <div class="actions">
+        <%= f.submit "ログイン", class: "btn btn-primary px-3 mt-3" %>
+      </div>
+    <% end %>
+  </div>
 
   <div class="row mt-3">
     <span class="bg-light font-weight-bold px-3">会員登録がお済みでない方</span>
