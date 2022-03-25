@@ -4,38 +4,38 @@
     <%= form_with model: @item do |f| %>
       <div class="form-group">
         <div class="form-inline">
-          <label for="item_image">商品画像</label>
+          <strong class="mr-5">商品画像</strong>
           <%= f.attachment_field :image %>
         </div>
       </div>
       <div class="form-group">
         <div class="form-inline">
-          <label for="item_name">商品名</label>
-          <%= f.text_field :name, class: 'form-control' %>
+          <strong class="mr-5">商品名</strong>
+          <%= f.text_field :name, class: 'form-control', placeholder: '商品名' %>
         </div>
       </div>
       <div class="form-group">
         <div class="form-inline">
-          <label for="item_introduction">商品説明</label>
-          <%= f.text_area :introduction, class: 'form-control' %>
+          <strong class="mr-5">商品説明</strong>
+          <%= f.text_area :introduction, class: 'form-control', placeholder: 'ここに説明文を記述します' %>
         </div>
       </div>
       <div class="form-group">
         <div class="form-inline">
-          <label for="item_genre">ジャンル</label>
+          <strong>ジャンル</strong>
         </div>
       </div>
       <div class="form-group">
         <div class="form-inline">
-          <label for="item_price">税抜価格</label>
-          <%= f.text_field :price, class: 'form-control' %>円
+          <strong class="mr-5">税抜価格</strong>
+          <%= f.text_field :price, class: 'form-control', placeholder: '1000' %>円
         </div>
       </div>
       <div class="form-group">
-        <labal for="item_status">販売ステータス</labal>
+        <strong>販売ステータス</strong>
       </div>
       <div class="form-group">
-        <%= f.submit "Create Item", class: 'btn btn-success' %>
+        <%= f.submit "新規登録", class: 'btn btn-success' %>
       </div>
     <% end %>
   </div>
