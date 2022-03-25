@@ -17,25 +17,30 @@
           <a class="navbar-brand" href="/">
             <span class="border border-dark rounded px-3">LOGO</span>
           </a>
-          <ul class="navbar-nav ml-auto">
-            <% if admin_signed_in? %>
-              <span><%= link_to "商品一覧", admin_items_path %></span>
-              <li><%= link_to "会員一覧", admin_customers_path %></li>
-              <li><%= link_to "注文履歴一覧" %></li>
-              <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
-              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-            <% elsif customer_signed_in? %>
-              <li><%= link_to "マイページ" %></li>
-              <li><%= link_to "商品一覧" %></li>
-              <li><%= link_to "カート" %></li>
-              <li><%= link_to "ログアウト" %></li>
-            <% else %>
-              <button type="button" class="btn btn-outline-secondary">About</button>
-              <button type="button" class="btn btn-outline-secondary">商品一覧</button>
-              <button type="button" class="btn btn-outline-secondary">新規登録</button>
-              <button type="button" class="btn btn-outline-secondary">ログイン</button>
-            <% end %>
-          </ul>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if admin_signed_in? %>
+                <span><%= link_to "商品一覧", admin_items_path %></span>
+                <li><%= link_to "会員一覧", admin_customers_path %></li>
+                <li><%= link_to "注文履歴一覧" %></li>
+                <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
+                <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+              <% elsif customer_signed_in? %>
+                <li><%= link_to "マイページ" %></li>
+                <li><%= link_to "商品一覧" %></li>
+                <li><%= link_to "カート" %></li>
+                <li><%= link_to "ログアウト" %></li>
+              <% else %>
+                <button type="button" class="btn btn-outline-secondary">About</button>
+                <button type="button" class="btn btn-outline-secondary">商品一覧</button>
+                <button type="button" class="btn btn-outline-secondary">新規登録</button>
+                <button type="button" class="btn btn-outline-secondary">ログイン</button>
+              <% end %>
+            </ul>
+          </div>
         </div>
       </nav>
     </header>
