@@ -1,16 +1,25 @@
 <div class="container">
   <div class="row">
-    <h1>商品詳細</h1>
-    <table class="table table-hober table-inverse">
-      <tbody>
-        <tr>
-          <td></td>
-          <td><%= @item.image %></td>
-          <td><%= @item.name %></td>
-          <td><%= @item.introduction %></td>
-          <td><%= @item.price %></td>
-        </tr>
-      </tbody>
-    </table>
+    <strong class="bg-light px-3">商品詳細</strong>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= @item.image %>
+    </div>
+    <div class="col">
+      <strong>商品名</strong>
+      <strong>商品説明</strong>
+      <strong>ジャンル</strong>
+      <strong>
+        税込価格
+        (税抜価格)
+      </strong>
+      <strong>販売ステータス</strong>
+    </div>
+    <div class="col">
+      <%= @item.name %>
+      <%= @item.introduction %>
+      <%= @item.price %>
+    </div>
   </div>
 </div>
