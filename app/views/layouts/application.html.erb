@@ -34,10 +34,10 @@
                 <li><%= link_to "カート" %></li>
                 <li><%= link_to "ログアウト" %></li>
               <% else %>
-                <button type="button" class="btn btn-outline-secondary">About</button>
-                <button type="button" class="btn btn-outline-secondary">商品一覧</button>
-                <button type="button" class="btn btn-outline-secondary">新規登録</button>
-                <button type="button" class="btn btn-outline-secondary">ログイン</button>
+                <li class="btn btn-outline-secondary text-dark mr-4" href="/about">About</li>
+                <li class="btn btn-outline-secondary text-dark mr-4" href="/items">商品一覧</li>
+                <li class="btn btn-outline-secondary text-dark mr-4" href="/customers/sign_up">新規登録</li>
+                <li class="btn btn-outline-secondary text-dark" href="/customers/sign_in">ログイン</li>
               <% end %>
             </ul>
           </div>
