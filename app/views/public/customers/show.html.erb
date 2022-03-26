@@ -3,13 +3,13 @@
     <span class="bg-light font-weight-bold px-3">マイページ</span>
   </div>
   <h4 class="font-weight-bold">登録情報</h4>
-  <%= link_to "編集する", edit_customer_path(current_user), class: "btn btn-success" %>
+  <%= link_to "編集する", edit_customer_path(current_customer), class: "btn btn-success" %>
 
   <table>
     <tbody>
       <tr>
         <th class="table-active">氏名</th>
-        <td><%= current_user.last_name current_user.first_name %></td>
+        <td><%= current_customer.last_name current_customer.first_name %></td>
       </tr>
       <tr>
         <th class="table-active">カナ</th>
@@ -17,19 +17,19 @@
       </tr>
       <tr>
         <th class="table-active">郵便番号</th>
-        <td><%= current_user.postal_code %></td>
+        <td><%= current_customer.postal_code %></td>
       </tr>
       <tr>
         <th class="table-active">住所</th>
-        <td><%= current_user.address %></td>
+        <td><%= current_customer.address %></td>
       </tr>
       <tr>
         <th class="table-active">電話番号</th>
-        <td><%= current_user.telephone_number %></td>
+        <td><%= current_customer.telephone_number %></td>
       </tr>
       <tr>
         <th class="table-active">メールアドレス</th>
-        <td><%= current_user.email %></td>
+        <td><%= current_customer.email %></td>
       </tr>
     </tbody>
   </table>
