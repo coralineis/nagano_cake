@@ -23,9 +23,9 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if admin_signed_in? %>
-                <span><%= link_to "商品一覧", admin_items_path, class: "btn btn-outline-secondary text-dark mr-4" %></span>
+                <li><%= link_to "商品一覧", admin_items_path, class: "btn btn-outline-secondary text-dark mr-4" %></li>
                 <li><%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-secondary text-dark mr-4" %></li>
-                <li><%= link_to "注文履歴一覧", admin_order_path(@order.id), class: "btn btn-outline-secondary text-dark mr-4" %></li>
+                <li><%= link_to "注文履歴一覧", admin_root_path, class: "btn btn-outline-secondary text-dark mr-4" %></li>
                 <li><%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-outline-secondary text-dark mr-4" %></li>
                 <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary text-dark mr-4" %></li>
               <% elsif customer_signed_in? %>
