@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :password], controllers: {
-    sessions: "admin/sessions"
+    sessions: 'admin/sessions'
   }
 
   namespace :admin do
@@ -14,15 +14,17 @@ Rails.application.routes.draw do
 
   scope module: :public do
     devise_for :customers, skip: [:password], controllers: {
-      registrations: "public/registrations",
-      sessions: "public/sessions"
+      registrations: 'public/registrations',
+      sessions: 'public/sessions'
     }
 
     root to: 'homes#top'
     get 'about' => 'homes#about'
     resources :items, only: [:index, :show]
     resources :customers, only: [:edit, :update,]
-    get "customers/my_page" => "customers#show"
+    get 'customers/my_page' => 'customers#show', as: 'my_page'
+    get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+    patch 'customers/withdraw' => 'customers#withdraw', as: 'withdraw'
     resources :cart_items, only: [:create, :index, :update, :destroy, :destroy_all]
     resources :orders, only: [:new, :confirm, :complete, :complete, :create, :index, :show]
     resources :order_details, only: [:index, :edit, :create, :update, :destroy]
