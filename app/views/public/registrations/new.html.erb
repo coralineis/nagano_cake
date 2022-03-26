@@ -5,7 +5,7 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
 
-      <div class="row">
+      <div class="row form-group">
         <div class="col"><%= f.label "名前" %></div>
         <div class="col-auto"><%= f.label :last_name, "(姓)" %></div>
         <div class="col-auto"><%= f.text_field :last_name, placeholder: "令和" %></div>
