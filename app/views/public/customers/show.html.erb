@@ -4,7 +4,7 @@
   </div>
   <h4 class="font-weight-bold">登録情報</h4>
   <%= link_to "編集する", edit_customer_path(current_user), class: "btn btn-success" %>
-  
+
   <table>
     <tbody>
       <tr>
@@ -34,7 +34,7 @@
     </tbody>
   </table>
   <h4>配送先</h4>
-  <%= link_to "一覧を見る", 
+  <%= link_to "一覧を見る", addresses_path, class: "btn btn-primary" %>
   <h4>注文履歴</h4>
-  <%= link_to "一覧を見る",
+  <%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %>
 </div>
