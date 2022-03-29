@@ -4,7 +4,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <%= attachment_image_tag @item, :image, format:"jpeg", size: "100*100" %>
+      <%= attachment_image_tag @item, :image, :fill, 200, 150, format:"jpeg" %>
     </div>
     <div class="col">
       <table>
@@ -23,7 +23,7 @@
           </tr>
           <tr>
             <th>
-              税込価格
+              税込価格<br>
               (税抜価格)
             </th>
             <td><%= @item.price %></td>
