@@ -1,25 +1,40 @@
 <div class="container">
   <div class="row">
-    <strong class="bg-light px-3">商品詳細</strong>
+    <h5 class="mt-2"><span class="bg-light font-weight-bold px-3">商品詳細</span></h5>
   </div>
   <div class="row">
     <div class="col">
-      <%= @item.image %>
+      <%= attachment_image_tag @item, :image, format:"jpeg", size: "100*100" %>
     </div>
     <div class="col">
-      <strong>商品名</strong>
-      <strong>商品説明</strong>
-      <strong>ジャンル</strong>
-      <strong>
-        税込価格
-        (税抜価格)
-      </strong>
-      <strong>販売ステータス</strong>
-    </div>
-    <div class="col">
-      <%= @item.name %>
-      <%= @item.introduction %>
-      <%= @item.price %>
+      <table>
+        <tbody>
+          <tr>
+            <th>商品名</th>
+            <td><%= @item.name %></td>
+          </tr>
+          <tr>
+            <th>商品説明</th>
+            <td><%= @item.introduction %></td>
+          </tr>
+          <tr>
+            <th>ジャンル</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>
+              税込価格
+              (税抜価格)
+            </th>
+            <td><%= @item.price %></td>
+          </tr>
+          <tr>
+            <th>販売ステータス</th>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-success" %>
     </div>
   </div>
 </div>
