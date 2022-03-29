@@ -1,7 +1,7 @@
 <div class="container">
 　<strong class="bg-light px-3">商品新規登録</strong>
 　<div class="row justify-content-center">
-    <%= form_with model: @item do |f| %>
+    <%= form_with model: @item, url: admin_items_path do |f| %>
       <div class="form-group">
         <div class="form-inline">
           <strong class="mr-5">商品画像</strong>

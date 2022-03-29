@@ -10,7 +10,6 @@ class AddColumnCustomers < ActiveRecord::Migration[6.1]
     change_column_null :items, :price, false
     change_column_null :items, :is_active, false
     remove_column :items, :gerne_id, :integer
-    add_column :items, :genre_id, :integer, null: false
     change_column_null :items, :image_id, false
     change_column_null :customers, :last_name, false
     change_column_null :customers, :first_name, false

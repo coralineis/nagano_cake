@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row mt-3">
     <div class="col">
-      <span class="bg-light font-weight-bold px-3">商品一覧</span>
+      <h5 class="my-2"><span class="bg-light font-weight-bold px-3">商品一覧</span></h4>
     </div>
     <div class="col-auto">
       <%= link_to new_admin_item_path do %>
@@ -25,7 +25,7 @@
         <% @items.each do |item| %>
           <tr>
             <td><%= item.id %></td>
-            <td><%= link_to item.name, admin_item_path(item.id) %></td>
+            <td><%= link_to item.name, admin_item_path(item.id), class: "text-dark" %></td>
             <td><%= item.price %></td>
             <td></td>
             <td></td>
