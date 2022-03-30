@@ -1,17 +1,32 @@
 <div class="container">
-  <div class="row py-3">
-    <span class="bg-light font-weight-bold px-3">新規会員登録</span>
+  <div class="row my-3">
+    <h5><span class="bg-light font-weight-bold px-3">新規会員登録</span></h5>
   </div>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
 
-      <div class="row form-group">
-        <div class="col"><%= f.label "名前" %></div>
-        <div class="col-auto"><%= f.label :last_name, "(姓)" %></div>
-        <div class="col-auto"><%= f.text_field :last_name, placeholder: "令和" %></div>
-        <div class="col-auto"><%= f.label :first_name, "(名)" %></div>
-        <div class="col"><%= f.text_field :first_name, placeholder: "道子" %></div>
-      </div>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th><%= f.label "名前" %></th>
+            <th><%= f.label :last_name, "(姓)" %></th>
+            <th><%= f.text_field :last_name, placeholder: "令和" %></th>
+            <th><%= f.label :first_name, "(名)" %></th>
+            <th><%= f.text_field :first_name, placeholder: "道子" %></th>
+          </tr>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr>
+            <th></th>
+            <th></th>
+          </tr>
+        </tbody>
+      </table>
 
       <div class="row">
         <div class="col"><%= f.label "フリガナ" %></div>
