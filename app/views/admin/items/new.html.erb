@@ -1,43 +1,41 @@
 <div class="container">
-　<h5 class="mt-2"><span class="bg-light px-3">商品新規登録</span></h5>
+　<h5 class="mt-2">
+　  <span class="bg-light font-weight-bold px-3">商品新規登録</span>
+　  </h5>
 　<div class="row justify-content-center">
-    <%= form_with model: @item, url: admin_item_path(@item.id) do |f| %>
-      <div class="form-group">
-        <div class="form-inline">
-          <strong class="mr-5">商品画像</strong>
-          <%= f.attachment_field :image %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="form-inline">
-          <strong class="mr-5">商品名</strong>
-          <%= f.text_field :name, class: 'form-control', placeholder: '商品名' %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="form-inline">
-          <strong class="mr-5">商品説明</strong>
-          <%= f.text_area :introduction, class: 'form-control', placeholder: 'ここに説明文を記述します' %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="form-inline">
-          <strong class="mr-5">ジャンル</strong>
-          <%= f.collection_select :genre_id, Genre.all, :id, :name, :prompt => "--選択してください--" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="form-inline">
-          <strong class="mr-5">税抜価格</strong>
-          <%= f.text_field :price, class: 'form-control', placeholder: '1000' %>円
-        </div>
-      </div>
-      <div class="form-group">
-        <strong class="mr-5">販売ステータス</strong>
-      </div>
-      <div class="form-group">
-        <%= f.submit "新規登録", class: 'btn btn-success' %>
-      </div>
+    <%= form_with model: @item, url: admin_items_path, methos: :post do |f| %>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th>商品画像</th>
+            <th><%= f.attachment_field :image %></th>
+          </tr>
+          <tr>
+            <th>商品名</th>
+            <th><%= f.text_field :name, class: 'form-control', placeholder: '商品名' %></th>
+          </tr>
+          <tr>
+            <th>商品説明</th>
+            <th><%= f.text_area :introduction, class: 'form-control', placeholder: 'ここに説明文を記述します' %></th>
+          </tr>
+          <tr>
+            <th>ジャンル</th>
+            <th><%= f.collection_select :genre_id, Genre.all, :id, :name, :prompt => "--選択してください--" %></th>
+          </tr>
+          <tr>
+            <th>税抜価格</th>
+            <th><%= f.text_field :price, class: 'form-control', placeholder: '1000' %>円</th>
+          </tr>
+          <tr>
+            <th>販売ステータス</th>
+            <th></th>
+          </tr>
+          <tr>
+            <th></th>
+            <th><%= f.submit "新規登録", class: "btn btn-success px-3" %></th>
+          </tr>
+        </tbody>
+      </table>
     <% end %>
   </div>
 </div>
