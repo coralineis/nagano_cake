@@ -4,7 +4,7 @@
       <span class="bg-light font-weight-bold px-3"><%= @customer.full_name %>さんの会員情報編集</span>
     </h5>
   </div>
-  <%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
+  <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
     <table class="table table-borderless">
       <thead>
         <tr>
@@ -55,8 +55,11 @@
           <th>会員ステータス</th>
           <th></th>
         </tr>
+        <tr>
+          <th></th>
+          <th><%= f.submit "変更を保存", class: "btn btn-success px-3" %></th>
+        </tr>
       </tbody>
     </table>
   <% end %>
-  <%= link_to "変更を保存", admin_customer_path(@customer.id), class: "btn btn-success px-3" %>
 </div>
