@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="row">
+  <div class="row mt-3">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <strong class="bg-light px-3">ジャンル編集</strong>
+      <h5><span class="bg-light font-weight-bold px-3">ジャンル編集</span></h5>
       <%= form_with model: @genre, url: admin_genre_path(@genre.id), method: :patch do |f| %>
         <div class="form-horizontal">
           <div class="form-group">

@@ -1,6 +1,7 @@
 <div class="container">
-  <strong class="bg-light px-3">ジャンル一覧・追加</strong>
-
+  <div class="row mt-3">
+    <h5><span class="bg-light font-weight-bold px-3">ジャンル一覧・追加</span></h5>
+  </div>
     <%= form_with model: @genre, url: admin_genres_path do |f| %>
       <form class="form-horizontal">
         <div class="form-group">
@@ -13,7 +14,7 @@
       </form>
     <% end %>
 
-    <table class="table table-hover table-inverse mt-5" style="width: 40%;">
+    <table class="table table-hover table-inverse mt-5" style="width: 50%;">
       <thead>
         <tr class="table-active">
           <th>ジャンル</th>
