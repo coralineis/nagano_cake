@@ -4,48 +4,50 @@
       <span class="bg-light font-weight-bold px-3"><%= @customer.full_name %>の会員詳細</span>
     </h5>
   </div>
-  <div>
-    <table class="table table-borderless">
-      <thead>
-        <tr>
-          <th scope="col" style="width: 20%"></th>
-          <th scope="col" style="width: 80%"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>会員ID</th>
-          <th><%= @customer.id %></th>
-        </tr>
-        <tr>
-          <th>氏名</th>
-          <th><%= @customer.last_name %> <%= @customer.first_name %></th>
-        </tr>
-        <tr>
-          <th>カナ</th>
-          <th><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></th>
-        </tr>
-        <tr>
-          <th>郵便番号</th>
-          <th><%= @customer.postal_code %></th>
-        </tr>
-        <tr>
-          <th>住所</th>
-          <th><%= @customer.address %></th>
-        </tr>
-        <tr>
-          <th>電話番号</th>
-          <th><%= @customer.telephone_number %></th>
-        </tr>
-        <tr>
-          <th>メールアドレス</th>
-          <th><%= @customer.email %></th>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="row justify-content-center">
-    <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success" %>
-    <%= link_to "注文履歴一覧を見る", class: "btn btn-primary" %>
+  <table class="table table-borderless">
+    <thead>
+      <tr>
+        <th scope="col" style="width: 20%"></th>
+        <th scope="col" style="width: 80%"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>会員ID</th>
+        <th><%= @customer.id %></th>
+      </tr>
+      <tr>
+        <th>氏名</th>
+        <th><%= @customer.last_name %> <%= @customer.first_name %></th>
+      </tr>
+      <tr>
+        <th>カナ</th>
+        <th><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></th>
+      </tr>
+      <tr>
+        <th>郵便番号</th>
+        <th><%= @customer.postal_code %></th>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <th><%= @customer.address %></th>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <th><%= @customer.telephone_number %></th>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <th><%= @customer.email %></th>
+      </tr>
+      <tr>
+        <th>会員ステータス</th>
+        <th></th>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row justify-content-center ">
+    <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success mr-5" %>
+    <%= link_to "注文履歴一覧を見る", admin_order_path(@customer.id), class: "btn btn-primary" %>
   </div>
 </div>
