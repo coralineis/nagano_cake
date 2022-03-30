@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row mt-3">
+    <h5>
+      <span class="bg-light font-weight-bold px-3"><%= @customer.full_name %>さんの会員情報編集</span>
+    </h5>
+  </div>
+  <%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 20%"></th>
+          <th scope="col" style="width: 80%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>会員ID</th>
+          <th><%= @customer.id %></th>
+        </tr>
+        <tr>
+          <th>氏名</th>
+          <th class="form-inline">
+            <%= f.text_field :last_name, class: "form-control mr-3" %> <%= f.text_field :first_name, class: "form-control" %>
+          </th>
+        </tr>
+        <tr>
+          <th>フリガナ</th>
+          <th class="form-inline">
+            <%= f.text_field :last_name_kana, class: "form-control mr-3" %> <%= f.text_field :first_name_kana, class: "form-control" %>
+          </th>
+        </tr>
+        <tr>
+          <th>郵便番号</th>
+          <th class="form-inline">
+            <%= f.text_field :postal_code, class: "form-control" %>
+          </th>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <th><%= f.text_field :address, class: "form-control" %></th>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <th class="form-inline">
+            <%= f.text_field :telephone_number, class: "form-control" %>
+          </th>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <th class="form-inline">
+            <%= f.text_field :email, class: "form-control" %>
+          </th>
+        </tr>
+        <tr>
+          <th>会員ステータス</th>
+          <th></th>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+  <%= link_to "変更を保存", admin_customer_path(@customer.id), class: "btn btn-success px-3" %>
+</div>
