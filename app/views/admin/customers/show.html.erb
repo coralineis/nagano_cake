@@ -1,43 +1,51 @@
 <div class="container">
   <div class="row mt-3">
-    <h4>
-      <span class="bg-light font-weight-bold px-3"><%= customer.name %>の会員詳細</span>
-    </h4>
+    <h5>
+      <span class="bg-light font-weight-bold px-3"><%= @customer.full_name %>の会員詳細</span>
+    </h5>
   </div>
-  <div class="row">
-    <h5 class="font-weight-bold">登録情報</h5>
-    <%= link_to "編集する", edit_customer_path(current_customer), class: "btn btn-success" %>
-    <table>
+  <div>
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 20%"></th>
+          <th scope="col" style="width: 80%"></th>
+        </tr>
+      </thead>
       <tbody>
         <tr>
-          <td>氏名</td>
-          <td><%= @customer.name %></td>
+          <th>会員ID</th>
+          <th><%= @customer.id %></th>
         </tr>
         <tr>
-          <td>カナ</td>
-          <td></td>
+          <th>氏名</th>
+          <th><%= @customer.last_name %> <%= @customer.first_name %></th>
         </tr>
         <tr>
-          <td>郵便番号</td>
-          <td><%= @customer.postal_code %></td>
+          <th>カナ</th>
+          <th><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></th>
         </tr>
         <tr>
-          <td>住所</td>
-          <td><%= @customer.address %></td>
+          <th>郵便番号</th>
+          <th><%= @customer.postal_code %></th>
         </tr>
         <tr>
-          <td>電話番号</td>
-          <td><%= @customer.telephone_number %></td>
+          <th>住所</th>
+          <th><%= @customer.address %></th>
         </tr>
         <tr>
-          <td>メールアドレス</td>
-          <td><%= @customer.email %></td>
+          <th>電話番号</th>
+          <th><%= @customer.telephone_number %></th>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <th><%= @customer.email %></th>
         </tr>
       </tbody>
     </table>
-    <h5 class="font-weight-bold">配送先</h5>
-    <%= link_to "一覧を見る", addresses_path, class: "btn btn-primary" %>
-    <h5 class="font-weight-bold">注文履歴</h5>
-    <%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %>
+  </div>
+  <div class="row justify-content-center">
+    <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success" %>
+    <%= link_to "注文履歴一覧を見る", class: "btn btn-primary" %>
   </div>
 </div>
