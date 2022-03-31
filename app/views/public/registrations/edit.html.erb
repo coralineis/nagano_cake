@@ -40,8 +40,10 @@
         </tr>
         <tr>
           <th></th>
-          <th><%= link_to "編集内容を保存", my_page_path(current_customer), class: "btn btn-success px-5" %></th>
-          <th><%= link_to "退会する", class: "btn btn-danger px-3" %></th>
+          <th>
+            <%= link_to "編集内容を保存", my_page_path(current_customer), class: "btn btn-success px-5" %>
+            <%= link_to "退会する", unsubscribe_path, class: "btn btn-danger px-3 ml-5" %>
+          </th>
         </tr>
       </tbody>
     </table>
