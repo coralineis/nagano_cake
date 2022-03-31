@@ -4,7 +4,7 @@
       <span class="bg-light font-weight-bold px-3">配送先登録/一覧</span>
     </h5>
   </div>
-  <%= form_with model: @address do |f| %>
+  <%= form_with model: @address, url: addresses_path, method: :post do |f| %>
     <table class="table table-borderless">
       <thead>
         <tr>
