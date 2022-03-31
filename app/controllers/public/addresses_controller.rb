@@ -10,6 +10,12 @@ class Public::AddressesController < ApplicationController
     redirect_to addresses_path
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   def destroy
     @address = Address.find(params[:id])
     @address.destroy
