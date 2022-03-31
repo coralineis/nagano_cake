@@ -1,3 +1,17 @@
 <div class="container">
-  
+  <div class="row mt-3">
+    <h5>
+      <span class="bg-light font-weight-bold px-3">配送先編集</span>
+    </h5>
+  </div>
+  <%= form_with model: @address, url: address_path(@address.id), method: :patch do |f| %>
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <th>郵便番号(ハイフンなし)</th>
+          <th><%= @address.postal_code %></th>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
 </div>
