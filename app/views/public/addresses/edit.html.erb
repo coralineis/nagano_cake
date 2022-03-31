@@ -16,8 +16,9 @@
           <th><%= @address.address %></th>
         </tr>
         <tr>
-          <th></th>
-          <th></th>
+          <th>宛名</th>
+          <th><%= @address.name %></th>
+          <th><%= f.submit "変更内容を保存", class: "btn btn-success" %></th>
         </tr>
       </tbody>
     </table>
