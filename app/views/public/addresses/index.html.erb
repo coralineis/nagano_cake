@@ -30,7 +30,28 @@
       </tbody>
     </table>
   <% end %>
-  
-  <% @addresses.each do |address| %>
-  <% end %>
+
+  <table class="table">
+    <thead>
+      <tr class="table-active">
+        <th>郵便番号</th>
+        <th>住所</th>
+        <th>宛名</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @addresses.each do |address| %>
+        <tr>
+          <th><%= address.postal_code %></th>
+          <th><%= address.address %></th>
+          <th><%= address.name %></th>
+          <th>
+            <%= link_to "編集する", edit_address_path(address.id), class: "btn btn-success" %>
+            <%= link_to "削除する", address_path(address.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger" %>
+          </th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
