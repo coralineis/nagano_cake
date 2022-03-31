@@ -1,43 +1,55 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="container">
+  <div class="row mt-3">
+    <h5><span class="bg-light font-weight-bold px-3">会員情報編集</span></h5>
   </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "public/shared/error_messages", resource: resource %>
+
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <th><%= f.label :full_name, "氏名" %></th>
+          <th>
+            <%= f.text_field :last_name %>
+            <%= f.text_field :first_name %>
+          </th>
+        </tr>
+        <tr>
+          <th><%= f.label :full_name_kana, "フリガナ" %></th>
+          <th>
+            <%= f.text_field :last_name_kana %>
+            <%= f.text_field :first_name_kana %>
+          </th>
+        </tr>
+        <tr>
+          <th><%= f.label :postal_code, "郵便番号" %></th>
+          <th><%= f.text_field :postal_code %></th>
+        </tr>
+        <tr>
+          <th><%= f.label :address, "住所" %></th>
+          <th><%= f.text_area :address %></th>
+        </tr>
+        <tr>
+          <th><%= f.label :telephone_number, "電話番号" %></th>
+          <th><%= f.text_field :telephone_number %></th>
+        </tr>
+        <tr>
+          <th><%= f.label :email, "メールアドレス" %></th>
+          <th><%= f.email_field :email %></th>
+        </tr>
+        <tr>
+          <th></th>
+          <th><%= link_to "編集内容を保存", my_page_path(current_customer), class: "btn btn-success px-5" %></th>
+          <th><%= link_to "退会する", class: "btn btn-danger px-3" %></th>
+        </tr>
+      </tbody>
+    </table>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+  <h3>Cancel my account</h3>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+  <%= link_to "Back", :back %>
+</div>
