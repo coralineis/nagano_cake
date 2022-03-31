@@ -6,74 +6,66 @@
       <%= render "public/shared/error_messages", resource: resource %>
 
       <table class="table table-borderless">
+        <thead>
+        <tr>
+          <th scope="col" style="width: 20%"></th>
+          <th scope="col" style="width: 80%"></th>
+        </tr>
+        </thead>
         <tbody>
           <tr>
             <th><%= f.label "名前" %></th>
-            <th><%= f.label :last_name, "(姓)" %></th>
-            <th><%= f.text_field :last_name, placeholder: "令和" %></th>
-            <th><%= f.label :first_name, "(名)" %></th>
-            <th><%= f.text_field :first_name, placeholder: "道子" %></th>
+            <th>
+              <%= f.label :last_name, "(姓)" %>
+              <%= f.text_field :last_name, placeholder: "令和" %>
+              <%= f.label :first_name, "(名)" %>
+              <%= f.text_field :first_name, placeholder: "道子" %>
+            </th>
+          </tr>
+          <tr>
+            <th><%= f.label "フリガナ" %></th>
+            <th>
+              <%= f.label :last_name_kana, "(セイ)" %>
+              <%= f.text_field :last_name_kana, placeholder: "レイワ" %>
+              <%= f.label :first_name_kana, "(メイ)" %>
+              <%= f.text_field :first_name_kana, placeholder: "ミチコ" %>
+            </th>
+          </tr>
+          <tr>
+            <th><%= f.label :email, "メールアドレス" %></th>
+            <th><%= f.email_field :email, autocomplete: "email", placeholder: "naganocake@email.com" %></th>
+          </tr>
+          <tr>
+            <th><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></th>
+            <th><%= f.text_field :postal_code, placeholder: "0000000" %></th>
+          </tr>
+          <tr>
+            <th><%= f.label :address, "住所" %></th>
+            <th><%= f.text_area :address, placeholder: "東京都渋谷区代々木0-0" %></th>
+          </tr>
+          <tr>
+            <th><%= f.label :telephone_number, "電話番号(ハイフンなし)" %></th>
+            <th><%= f.text_field :telephone_number, placeholder: "00000000000" %></th>
+          </tr>
+          <tr>
+            <th>
+              <%= f.label :password, "パスワード" %>
+                <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %>文字以上)</em>
+                <% end %>
+            </th>
+            <th><%= f.password_field :password, autocomplete: "new-password" %></th>
+          </tr>
+          <tr>
+            <th><%= f.label :password_confirmation, "パスワード(確認用)" %></th>
+            <th><%= f.password_field :password_confirmation, autocomplete: "new-password" %></th>
           </tr>
           <tr>
             <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-          <tr>
-            <th></th>
-            <th></th>
+            <th><%= f.submit "新規登録", class: "btn btn-success" %></th>
           </tr>
         </tbody>
       </table>
-
-      <div class="row">
-        <div class="col"><%= f.label "フリガナ" %></div>
-        <div class="col-auto"><%= f.label :last_name_kana, "(セイ)" %></div>
-        <div class="col-auto"><%= f.text_field :last_name_kana, placeholder: "レイワ" %></div>
-        <div class="col-auto"><%= f.label :first_name_kana, "(メイ)" %></div>
-        <div class="col"><%= f.text_field :first_name_kana, placeholder: "ミチコ" %></div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-5"><%= f.label :email, "メールアドレス" %></div>
-        <div class="col-lg-7"><%= f.email_field :email, autocomplete: "email", placeholder: "naganocake@email.com" %></div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-5"><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></div>
-        <div class="col-lg-7"><%= f.text_field :postal_code, placeholder: "0000000" %></div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-5"><%= f.label :address, "住所" %></div>
-        <div class="col^lg-7"><%= f.text_area :address, placeholder: "東京都渋谷区代々木0-0" %></div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-5"><%= f.label :telephone_number, "電話番号(ハイフンなし)" %></div>
-        <div class="col-lg-7"><%= f.text_field :telephone_number, placeholder: "00000000000" %></div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-5">
-          <%= f.label :password, "パスワード" %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %>文字以上)</em>
-          <% end %>
-        </div>
-        <div class="col-lg-7"><%= f.password_field :password, autocomplete: "new-password" %></div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-5"><%= f.label :password_confirmation, "パスワード(確認用)" %></div>
-        <div class="col-lg-7"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></div>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "新規登録", class: "btn btn-success" %>
-      </div>
     <% end %>
 
   <div class="row mt-3">
@@ -86,4 +78,3 @@
   </div>
 </div>
 
-<%= render "public/shared/links" %>
