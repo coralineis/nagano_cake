@@ -7,6 +7,6 @@ class Item < ApplicationRecord
   has_many :customers, through: :cart_items
 
   def add_tax_price
-    (self.price * 1.08).round
+    (price * 1.08).floor
   end
 end
