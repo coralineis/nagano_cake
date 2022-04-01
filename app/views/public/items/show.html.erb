@@ -1,1 +1,14 @@
-<di
+<div class="container">
+  <div class="row">
+    <%= render "public/homes/genre_list", genres: @genres %>
+
+    <div class="col-4 my-3">
+      <%= attachment_image_tag @item, :image, :fill, 250, 200, format: "jpeg" %>
+    </div>
+    <div class="col-6 mt-3">
+      <h5 class="font-weight-bold"><%= @item.name %></h5>
+      <p><%= @item.introduction %></p>
+      <h5 class="font-weight-bold">￥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</h5>
+    </div>
+  </div>
+</div>
