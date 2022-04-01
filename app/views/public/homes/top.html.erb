@@ -1,21 +1,6 @@
 <div class="container">
   <div class="row mt-4">
-    <div class="col-md-4">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>ジャンル検索</th>
-          </tr>
-        </thead>
-        <tboddy>
-          <% @genres.each do |genre| %>
-            <tr>
-              <td><%= genre.name %></td>
-            </tr>
-          <% end %>
-        </tboddy>
-      </table>
-    </div>
+    <%= render 'genre_list', genres: @genres %>
     <div class="col-md-8 text-center">
       <p>ようこそ、ながのCAKEへ！</p>
       <p>このサイトは、ケーキ販売のECサイトになります。</p>
