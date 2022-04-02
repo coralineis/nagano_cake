@@ -7,10 +7,13 @@
       <%= attachment_image_tag @item, :image, :fill, 250, 200, format: "jpeg" %>
     </div>
     <div class="col-6 mt-3">
-      <h5 class="font-weight-bold"><%= @item.name %></h5>
-      <p><%= @item.introduction %></p>
-      <h5 class="font-weight-bold">￥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</h5>
       <%= form_with model: @item, url: cart_items_path, method: :post do |f| %>
+        <h5 class="font-weight-bold">
+          <%= @item.name %>
+          <%= f.hidden_field :name, :value => @item.id %>
+        </h5>
+        <p><%= @item.introduction %></p>
+        <h5 class="font-weight-bold">￥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</h5>
         <%= f.select :amount, *[1..10], :prompt => "個数選択" %>
         <%= f.submit "カートに入れる", class: "btn btn-success" %>
       <% end %>

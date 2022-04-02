@@ -1,6 +1,6 @@
 class Public::CartItemsController < ApplicationController
   def create
-    @item = CartItem.new(cart_item_params)
+    @item = Item.new(cart_item_params[:item_id])
     @item.save
     redirect_to cart_items_path
   end
