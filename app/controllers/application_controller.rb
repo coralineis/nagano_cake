@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_up_path_for(resource)
-    my_page_path
+    my_page_path(current_customer)
   end
 
   def after_sign_in_path_for(resource)
@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_admin_signed_in!
-    if !customers_signed_in?
+    if !customer_signed_in?
       authenticate_admin!
     end
   end
