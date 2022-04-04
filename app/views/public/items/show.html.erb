@@ -10,7 +10,7 @@
       <%= form_with model: @item, url: cart_items_path, method: :post do |f| %>
         <h5 class="font-weight-bold">
           <%= @item.name %>
-          <%= f.hidden_field :name, :value => @item.id %>
+          <%= f.hidden_field :item_id, :value => @item.id %>
         </h5>
         <p><%= @item.introduction %></p>
         <h5 class="font-weight-bold">￥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</h5>
