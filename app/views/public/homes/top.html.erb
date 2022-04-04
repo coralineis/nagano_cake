@@ -9,9 +9,8 @@
     </div>
   </div>
   <h2 class="font-weight-bold text-center">新着商品</h2>
-  <div class="row justify-content-center">
+  <div class="row">
       <% @item.each do |item| %>
-        <div class="col-lg-4">
         <div class="card-group">
           <div class="card">
             <%= attachment_image_tag item, :image, :fill, 180, 120, format: "jpeg" %>
@@ -20,7 +19,10 @@
               <p class="card-text font-weight-bold">￥<%= item.add_tax_price.to_s(:delimited) %></p>
             </div>
           </div>
-        </div></div>
+        </div>
       <% end %>
+  </div>
+  <div class="text-right mr-5">
+    <%= link_to "全ての商品を見る>", items_path %>
   </div>
 </div>
