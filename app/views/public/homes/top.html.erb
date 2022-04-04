@@ -8,7 +8,19 @@
       <p>購入には会員登録が必要になります。</p>
     </div>
   </div>
+  <h2 class="font-weight-bold text-center">新着商品</h2>
   <div class="row justify-content-center">
-    <h2 class="font-weight-bold">新着商品</h2>
+      <% @item.each do |item| %>
+        <div class="col-lg-4">
+        <div class="card-group">
+          <div class="card">
+            <%= attachment_image_tag item, :image, :fill, 180, 120, format: "jpeg" %>
+            <div class="card-body">
+              <p class="card-title font-weight-bold"><%= link_to item.name, item_path(item.id), class: "text-dark" %></div>
+              <p class="card-text font-weight-bold">￥<%= item.add_tax_price.to_s(:delimited) %></p>
+            </div>
+          </div>
+        </div></div>
+      <% end %>
   </div>
 </div>

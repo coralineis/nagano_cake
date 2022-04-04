@@ -3,18 +3,17 @@
     <%= render "public/homes/genre_list", genres: @genres %>
     <h3 class="font-weight-bold m-3">商品一覧</h3>
     <div class="col-10 d-flex flex-wrap">
-
-    <% @items.each do |item| %>
-      <div class="card-group">
-        <div class="card">
-          <%= attachment_image_tag item, :image, :fill, 180, 120, format: "jpeg" %>
-          <div class="card-body">
-            <p class="card-title font-weight-bold"><%= link_to item.name, item_path(item.id), class: "text-dark" %></p>
-            <p class="card-text font-weight-bold">￥<%= item.add_tax_price.to_s(:delimited) %></p>
+      <% @items.each do |item| %>
+        <div class="card-group">
+          <div class="card">
+            <%= attachment_image_tag item, :image, :fill, 180, 120, format: "jpeg" %>
+            <div class="card-body">
+              <p class="card-title font-weight-bold"><%= link_to item.name, item_path(item.id), class: "text-dark" %></p>
+              <p class="card-text font-weight-bold">￥<%= item.add_tax_price.to_s(:delimited) %></p>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
     </div>
   </div>
   <%= paginate @items %>
