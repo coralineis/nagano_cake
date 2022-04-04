@@ -7,7 +7,7 @@
   </div>
 
   <div class="row justify-content-center">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= form_with model: @customer, url: new_customer_session_path do |f| %>
       <table class="table table-borderless">
          <tbody>
            <tr>

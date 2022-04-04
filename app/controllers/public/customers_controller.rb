@@ -22,10 +22,12 @@ class Public::CustomersController < ApplicationController
     reset_session
     redirect_to root_path
   end
+  
+  
 
   private
 
   def customer_params
-    params.require(:customr).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number)
+    params.require(:customr).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number, :is_deleted)
   end
 end
