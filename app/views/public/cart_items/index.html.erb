@@ -18,11 +18,11 @@
     <tbody>
       <% @cart_items.each do |cart_item| %>
         <tr>
-          <th><%= car_item.name %></th>
+          <th><%= cart_item.item.name %></th>
           <th><%= cart_item.item.add_tax_price.to_s(:delimited) %></th>
-          <th><%= cart_item.select :amount %><%= link_to "変更" %></th>
-          <th><%= car_item.subtotal %></th>
-          <th><%= link_to "削除する", cart_item_path(item.id), method: :delete, class: "btn btn-danger" %></th>
+          <th><%= cart_item.amount %><%= link_to "変更" %></th>
+          <th><%= cart_item.subtotal %></th>
+          <th><%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger" %></th>
           <% @total_payment += cart_item.subtotal %>
         </tr>
       <% end %>
