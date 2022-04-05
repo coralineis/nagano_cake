@@ -11,7 +11,7 @@
     <%= f.radio_button :payment_method, "transfer", class: "ml-3" %>
     <%= f.label :payment_method, "銀行振込" %><br>
     <h6 class="font-weight-bold">お届け先</h6>
-    <%= f.radio_button
+    <%= f.radio_button :address,
     <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
   <% end %>
 </div>

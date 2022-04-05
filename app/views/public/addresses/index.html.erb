@@ -31,7 +31,7 @@
     </table>
   <% end %>
 
-  <table class="table">
+  <table class="table table-bordered border-dark">
     <thead>
       <tr class="table-active">
         <th>郵便番号</th>
@@ -46,7 +46,7 @@
           <th><%= address.postal_code %></th>
           <th><%= address.address %></th>
           <th><%= address.name %></th>
-          <th>
+          <th class="text-center">
             <%= link_to "編集する", edit_address_path(address.id), class: "btn btn-success" %>
             <%= link_to "削除する", address_path(address.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger" %>
           </th>
