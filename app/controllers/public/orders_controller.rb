@@ -9,6 +9,8 @@ class Public::OrdersController < ApplicationController
     @order.postal_code = current_customer.postal_code
     @order.address = current_customer.address
     @order.name = current_customer.full_name
+    @cart_items = current_customer.cart_items
+    @total_payment = 0
   end
 
   def complete
