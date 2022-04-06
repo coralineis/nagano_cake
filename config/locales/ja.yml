@@ -4,6 +4,12 @@ ja:
       payment_method:
         credit_card: "クレジットカード"
         transfer: "銀行振込"
+      status:
+        pre_order: "入金待ち"
+        order_placed: "入金確認"
+        making_items: "製作中"
+        prepare_for_shipping: "発送準備中"
+        shipped: "発送済み"
     item:
       is_active:
         for_sale: "販売中"
