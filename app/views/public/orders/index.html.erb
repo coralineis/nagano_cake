@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row mt-3">
+    <h5>
+      <span class="bg-light font-weight-bold px-3">注文履歴一覧</span>
+    </h5>
+  </div>
+  <table class="table table-bordered border-dark">
+    <thead>
+      <tr class="table-active">
+        <th>注文日</th>
+        <th>配送先</th>
+        <th>注文商品</th>
+        <th>支払金額</th>
+        <th>ステータス</th>
+        <th>注文詳細</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @order_details.each do |order_detail| %>
+        <tr>
+          <th><%= order_detail.created_at %></th>
+          <th><%= order_detail.address %></th>
+          <th><%= order_detail.item.name %></th>
+          <th><%= order_detail.price %></th>
+          <th></th>
+          <th><%= link_to "表示する", order_path(@order.id), class: "btn btn-primary" %></th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
