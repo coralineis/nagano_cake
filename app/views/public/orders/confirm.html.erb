@@ -4,50 +4,53 @@
       <span class="bg-light font-weight-bold px-3">注文情報確認</span>
     </h5>
   </div>
-  <% @orders.each do |order| %>
-    <div class="row">
-      <div class="col-10">
-        <table class="table table-bordered border-dark">
-          <thead>
-            <tr class="table-active">
-              <th>商品名</th>
-              <th>単価(税込)</th>
-              <th>数量</th>
-              <th>小計</th>
-            </tr>
-          </thead>
-          <tbody>
+
+  <div class="row">
+    <div class="col-10">
+      <table class="table table-bordered border-dark">
+        <thead>
+          <tr class="table-active">
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
             <tr>
               <th><%= order.item.name %></th>
               <th><%= order.item.add_tax_price.to_s(:delimited) %></th>
               <th><%= order.amount %></th>
               <th><%= order.subtotal.to_s(:delimited) %></th>
             </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-2">
-        <table class="table table-boreded border-dark">
-          <tbody>
-            <tr>
-              <th class="table-active">送料</th>
-              <th><%= shipping_cost = 800 %></th>
-            </tr>
-            <tr>
-              <th class="table-active">商品合計</th>
-              <th><%= @total_payment += order.subtotal %></th>
-            </tr>
-            <tr>
-              <th class="table-active">請求金額</th>
-              <th><%= @total_payment += shipping_cost %></th>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+          <% end %>
+        </tbody>
+      </table>
     </div>
-  <% end %>
+    <div class="col-2">
+      <table class="table table-boreded border-dark">
+        <tbody>
+          <tr>
+            <th class="table-active">送料</th>
+            <th><%= shipping_cost = 800 %></th>
+          </tr>
+          <tr>
+            <th class="table-active">商品合計</th>
+            <th><%= @total_payment.to_s(:delimited) %></th>
+          </tr>
+          <tr>
+            <th class="table-active">請求金額</th>
+            <th><%= @total_payment += shipping_cost %></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 
   <%= form_with model: @order, url: orders_path, method: :post do |f| %>
+    <%= f.hidden_field :total_payment %>
     <div>
       <h6 class="font-weight-bold">支払方法</h6>
       <%= @order.payment_method_i18n %>
