@@ -5,37 +5,37 @@
     </h5>
   </div>
   <div class="row">
-    <div class="col">
+    <div class="col-8">
       <h6 class="font-weight-bold">注文情報</h6>
       <table class="table table-bordered">
         <tbody>
           <tr>
             <th>注文日</th>
-            <th></th>
+            <th><%= @order_detail.created_at %></th>
           </tr>
           <tr>
             <th>配送先</th>
-            <th></th>
+            <th><%= @order_detail.address %></th>
           </tr>
           <tr>
             <th>支払方法</th>
-            <th></th>
+            <th><%= @order_detail.order.payment_method %></th>
           </tr>
           <tr>
             <th>ステータス</th>
-            <th></th>
+            <th><%= @order_detail.making_status %></th>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="col">
+    <div class="col-4">
       <h6 class="font-weight-bold">請求情報</h6>
       <table class="table table-bordered">
         <tbody>
           <tr>
             <th>商品合計</th>
-            <th></th>
+            <th><%= @order_detail %></th>
           </tr>
           <tr>
             <th>配送料</th>
@@ -43,7 +43,7 @@
           </tr>
           <tr>
             <th>ご請求額</th>
-            <th></th>
+            <th><%= @order_detail.peice %></th>
           </tr>
         </tbody>
       </table>
