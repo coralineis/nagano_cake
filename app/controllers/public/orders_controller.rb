@@ -26,7 +26,14 @@ class Public::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.save
-
+    @cart_items = current_customer.cart_items
+    @cart_items.each do |cart_item|
+      @order_detail = OrderDetail.new
+      @order_detail.item_id = cart_item.item.id
+      @order_detail.order_id = @order.id
+      @order_detail.price = @order.total_payment
+      @order_detail.amount = cart_item.amount
+    end
     current_customer.cart_items.destroy_all
     redirect_to complete_path
   end
