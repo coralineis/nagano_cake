@@ -41,15 +41,13 @@ class Public::OrdersController < ApplicationController
     redirect_to complete_path
   end
 
-  def complete
-  end
-
   def index
-    @order_details = OrderDetail.all
+    @orders = current_customer.orders
   end
 
   def show
-    @order_detail = OrderDetail.find(params[:id])
+    @order = Order.find(params[:id])
+    @shipping_cost = 800
   end
 
   private

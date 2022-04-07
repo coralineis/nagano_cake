@@ -16,3 +16,7 @@ ja:
         preparing: "製作待ち"
         processing: "製作中"
         complete: "製作完了"
+
+  time:
+    formats:
+      default: "%Y/%m/%d"

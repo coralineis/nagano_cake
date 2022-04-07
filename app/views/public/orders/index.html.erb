@@ -4,7 +4,7 @@
       <span class="bg-light font-weight-bold px-3">注文履歴一覧</span>
     </h5>
   </div>
-  <table class="table table-bordered border-dark">
+  <table class="table table-bordered border-dark mt-3">
     <thead>
       <tr class="table-active">
         <th>注文日</th>
@@ -16,14 +16,18 @@
       </tr>
     </thead>
     <tbody>
-      <% @order_details.each do |order_detail| %>
+      <% @orders.each do |order| %>
         <tr>
-          <th><%= order_detail.created_at %></th>
-          <th><%= order_detail.address %></th>
-          <th><%= order_detail.item.name %></th>
-          <th><%= order_detail.price %></th>
+          <th><%= l order.created_at %></th>
+          <th>
+            〒<%= order.postal_code %><br>
+            <%= order.address %><br>
+            <%= order.name %>
+          </th>
+          <th><%= order.items.name %></th>
+          <th><%= order.total_payment.to_s(:delimited) %></th>
           <th></th>
-          <th><%= link_to "表示する", order_path(@order.id), class: "btn btn-primary" %></th>
+          <th><%= link_to "表示する", order_path(order.id), class: "btn btn-primary" %></th>
         </tr>
       <% end %>
     </tbody>
