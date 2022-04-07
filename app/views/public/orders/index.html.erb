@@ -18,7 +18,7 @@
     <tbody>
       <% @orders.each do |order| %>
         <tr>
-          <th><%= l order.created_at %></th>
+          <th><%= l order.created_at format: :short %></th>
           <th>
             〒<%= order.postal_code %><br>
             <%= order.address %><br>

@@ -11,7 +11,7 @@
         <tbody>
           <tr>
             <th class="table-active">注文日</th>
-            <th><%= l @order.created_at %></th>
+            <th><%= l @order.created_at format: :short %></th>
           </tr>
           <tr>
             <th class="table-active">配送先</th>
@@ -47,7 +47,7 @@
           </tr>
           <tr>
             <th class="table-active">ご請求額</th>
-            <th><%= (@order.total_payment + 800).to_s(:delimited) %></th>
+            <th><%= (@order.total_payment + @shipping_cost).to_s(:delimited) %></th>
           </tr>
         </tbody>
       </table>
@@ -67,12 +67,14 @@
             </tr>
         </thead>
         <tbody>
-          <tr>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
+          <% @order_details.each do |order_detail| %>
+            <tr>
+              <th><%= order_detail.item.name %></th>
+              <th><%= order_detail.price.to_s(:delimited) %></th>
+              <th><%= order_detail.amount %></th>
+              <th><%= (order_detail.price * order_detail.amount).to_s(:delimited) %></th>
             </tr>
+          <% end %>
         </tbody>
       </table>
     </div>

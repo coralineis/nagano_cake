@@ -12,12 +12,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= l order.created_at %></td>
+          <td><%= order.name %></td>
+          <td><%= order.amount %></td>
+          <td><%= order.status %></td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 </div>

@@ -42,7 +42,7 @@
           </tr>
           <tr>
             <th class="table-active">請求金額</th>
-            <th><%= (@total_payment + 800).to_s(:delimited) %></th>
+            <th><%= (@total_payment + @shipping_cost).to_s(:delimited) %></th>
           </tr>
         </tbody>
       </table>
