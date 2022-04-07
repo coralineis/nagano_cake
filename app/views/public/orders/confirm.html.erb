@@ -17,12 +17,14 @@
           </tr>
         </thead>
         <tbody>
+          <% @total_payment = 0 %>
           <% @orders.each do |order| %>
             <tr>
               <th><%= order.item.name %></th>
               <th><%= order.item.add_tax_price.to_s(:delimited) %></th>
               <th><%= order.amount %></th>
               <th><%= order.subtotal.to_s(:delimited) %></th>
+              <% @total_payment += order.subtotal %>
             </tr>
           <% end %>
         </tbody>
@@ -41,7 +43,7 @@
           </tr>
           <tr>
             <th class="table-active">請求金額</th>
-            <th><%= @total_payment += shipping_cost %></th>
+            <th><%= (@total_payment + 800).to_s(:delimited) %></th>
           </tr>
         </tbody>
       </table>

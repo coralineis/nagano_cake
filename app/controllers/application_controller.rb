@@ -33,13 +33,13 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def check_admin_signed_in!
-    authenticate_admin!
+  def check_customer_signed_in!
+    authenticate_customer!
   end
 
-  def check_customer_signed_in!
-    if !admin_signed_in?
-      authenticate_customer!
+  def check_admin_signed_in!
+    if !customer_signed_in?
+      authenticate_admin!
     end
   end
 

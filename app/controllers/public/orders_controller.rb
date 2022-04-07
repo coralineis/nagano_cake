@@ -20,7 +20,6 @@ class Public::OrdersController < ApplicationController
       @order.name = params[:order][:name]
     end
     @orders = current_customer.cart_items
-    @total_payment = @orders.inject(0) {|sum, item| sum + item.subtotal }
   end
 
   def create
