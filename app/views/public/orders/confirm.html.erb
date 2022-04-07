@@ -17,14 +17,13 @@
           </tr>
         </thead>
         <tbody>
-          <% @total_payment = 0 %>
-          <% @orders.each do |order| %>
+          <% @cart_items.each do |cart_item| %>
             <tr>
-              <th><%= order.item.name %></th>
-              <th><%= order.item.add_tax_price.to_s(:delimited) %></th>
-              <th><%= order.amount %></th>
-              <th><%= order.subtotal.to_s(:delimited) %></th>
-              <% @total_payment += order.subtotal %>
+              <th><%= cart_item.item.name %></th>
+              <th><%= cart_item.item.add_tax_price.to_s(:delimited) %></th>
+              <th><%= cart_item.amount %></th>
+              <th><%= cart_item.subtotal.to_s(:delimited) %></th>
+              <% @total_payment += cart_item.subtotal %>
             </tr>
           <% end %>
         </tbody>
@@ -35,7 +34,7 @@
         <tbody>
           <tr>
             <th class="table-active">送料</th>
-            <th><%= shipping_cost = 800 %></th>
+            <th><%= @shipping_cost %></th>
           </tr>
           <tr>
             <th class="table-active">商品合計</th>
@@ -52,7 +51,7 @@
 
 
   <%= form_with model: @order, url: orders_path, method: :post do |f| %>
-    <%= f.hidden_field :total_payment %>
+    <%= f.hidden_field :shipping_cost, :value => @shipping_cost %><%= f.hidden_field :total_payment, :value => @total_payment %>
     <div>
       <h6 class="font-weight-bold">支払方法</h6>
       <%= @order.payment_method_i18n %>
@@ -62,7 +61,7 @@
       <h6 class="font-weight-bold">お届け先</h6>
       〒<%= @order.postal_code %> <%= @order.address %>
       <%= @order.name %>
-      <%= f.hidden_field :select_address %>
+      <%= f.hidden_field :postal_code %><%= f.hidden_field :address %><%= f.hidden_field :name %>
     </div>
     <div class="text-center mt-3">
       <%= f.submit "注文を確定する", class: "btn btn-success" %>
