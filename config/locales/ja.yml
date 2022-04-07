@@ -10,10 +10,6 @@ ja:
         making_products: "製作中"
         prepare_for_shipping: "発送準備中"
         shipped: "発送済み"
-    item:
-      is_active:
-        for_sale: "販売中"
-        sold_out: "販売停止中"
     order_detail:
       making_status:
         discontinued: "製作不可"
