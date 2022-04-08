@@ -12,13 +12,15 @@
   <div class="row">
       <% @item.each do |item| %>
         <div class="card-group">
-          <div class="card">
-            <%= attachment_image_tag item, :image, :fill, 180, 120, format: "jpeg" %>
-            <div class="card-body">
-              <p class="card-title font-weight-bold"><%= link_to item.name, item_path(item.id), class: "text-dark" %></div>
-              <p class="card-text font-weight-bold">￥<%= item.add_tax_price.to_s(:delimited) %></p>
+          <%= link_to item_path(item.id), class: "text-dark" do %>
+            <div class="card">
+              <%= attachment_image_tag item, :image, :fill, 180, 120, format: "jpeg" %>
+              <div class="card-body">
+                <p class="card-text font-weight-bold"><%= item.name %></div>
+                <p class="card-text font-weight-bold">￥<%= item.add_tax_price.to_s(:delimited) %></p>
+              </div>
             </div>
-          </div>
+          <% end %>
         </div>
       <% end %>
   </div>
