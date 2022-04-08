@@ -8,17 +8,18 @@
       <p>購入には会員登録が必要になります。</p>
     </div>
   </div>
-  <h2 class="font-weight-bold text-center">新着商品</h2>
+  <h2 class="font-weight-bold text-center my-3">新着商品</h2>
   <div class="row">
     <% @item.each do |item| %>
+      <div class="col">
         <%= link_to item_path(item.id), class: "text-dark" do %>
-          <div class="col-3">
-            <%= attachment_image_tag item, :image, :fill, 180, 120, format: "jpeg" %>
-            <p class="font-weight-bold"><%= item.name %></div>
-            <p class="font-weight-bold">￥<%= item.add_tax_price.to_s(:delimited) %></p>
-          </div>
-          
+          <ul>
+            <li style="list-style: none"><%= attachment_image_tag item, :image, :fill, 180, 120, format: "jpeg" %></li>
+            <li class="font-weight-bold mt-3" style="list-style: none"><%= item.name %></li>
+            <li class="font-weight-bold mt-3" style="list-style: none">￥<%= item.add_tax_price.to_s(:delimited) %></li>
+          </ul>
         <% end %>
+      </div>
     <% end %>
   </div>
   <div class="text-right mr-5">
