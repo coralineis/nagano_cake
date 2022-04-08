@@ -15,49 +15,52 @@
       <tbody>
         <tr>
           <th>会員ID</th>
-          <th><%= @customer.id %></th>
+          <td><%= @customer.id %></td>
         </tr>
         <tr>
           <th>氏名</th>
-          <th class="form-inline">
+          <td class="form-inline">
             <%= f.text_field :last_name, class: "form-control mr-3" %> <%= f.text_field :first_name, class: "form-control" %>
-          </th>
+          </td>
         </tr>
         <tr>
           <th>フリガナ</th>
-          <th class="form-inline">
+          <td class="form-inline">
             <%= f.text_field :last_name_kana, class: "form-control mr-3" %> <%= f.text_field :first_name_kana, class: "form-control" %>
-          </th>
+          </td>
         </tr>
         <tr>
           <th>郵便番号</th>
-          <th class="form-inline">
+          <td class="form-inline">
             <%= f.text_field :postal_code, class: "form-control" %>
-          </th>
+          </td>
         </tr>
         <tr>
           <th>住所</th>
-          <th><%= f.text_field :address, class: "form-control" %></th>
+          <td><%= f.text_field :address, class: "form-control" %></td>
         </tr>
         <tr>
           <th>電話番号</th>
-          <th class="form-inline">
+          <td class="form-inline">
             <%= f.text_field :telephone_number, class: "form-control" %>
-          </th>
+          </td>
         </tr>
         <tr>
           <th>メールアドレス</th>
-          <th class="form-inline">
+          <td class="form-inline">
             <%= f.text_field :email, class: "form-control" %>
-          </th>
+          </td>
         </tr>
         <tr>
           <th>会員ステータス</th>
-          <th></th>
+          <td>
+            <%= f.radio_button :is_deleted, false %><%= f.label :is_deleted, "有効", value: false %>
+            <%= f.radio_button :is_deleted, true, class: "ml-3" %><%= f.label :is_deleted, "退会", value: true %>
+          </td>
         </tr>
         <tr>
           <th></th>
-          <th><%= f.submit "変更を保存", class: "btn btn-success px-3" %></th>
+          <td><%= f.submit "変更を保存", class: "btn btn-success px-3" %></td>
         </tr>
       </tbody>
     </table>

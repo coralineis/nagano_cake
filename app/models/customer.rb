@@ -17,4 +17,8 @@ class Customer < ApplicationRecord
     self.last_name_kana + self.first_name_kana
   end
 
+  def is_deleted_tf
+    is_deleted ? '退会' : '有効'
+  end
+
 end

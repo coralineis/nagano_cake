@@ -18,7 +18,7 @@
             <td><%= customer.id %></td>
             <td><%= link_to customer.full_name, admin_customer_path(customer.id), class: "text-dark" %></td>
             <td><%= customer.email %></td>
-            <td></td>
+            <td><%= customer.is_deleted_tf %></td>
           </tr>
         <% end %>
       </tbody>
