@@ -6,7 +6,7 @@
     <tbody>
       <tr>
         <th>購入者</th>
-        <th><%= @order.customer.full_name %></th>
+        <th><%= link_to @order.customer.full_name, admin_order_path(@order.id), class: "text-dark text-decoration-underline" %></th>
       </tr>
       <tr>
         <th>注文日</th>
@@ -27,7 +27,7 @@
         <th>注文ステータス</th>
         <%= form_with model: @order, url: admin_order_path, method: :patch do |f| %>
           <th>
-            <%= f.select :status, [['入金待ち', 0], ['入金確認', 1], ['製作中', 2], ['発送準備中', 3], ['発送済み', 4]] %>
+            <%= f.select :status, Order.statuses_i18n.invert, {} %>
             <%= f.submit "更新", class: "btn btn-success ml-3" %>
           </th>
         <% end %>
@@ -53,7 +53,7 @@
           <td><%= %></td>
           <%= form_with model: @order_detail, url: admin_order_path, method: :patch do |f| %>
             <td>
-              <%= f.select :making_status, [['製作不可', 0], ['製作待ち', 1], ['製作中', 2], ['製作完了', 3]] %>
+              <%= f.select :making_status, OrderDetail.making_statuses_i18n.invert, {} %>
               <%= f.submit "更新", class: "btn btn-success ml-3" %>
             </td>
           <% end %>
