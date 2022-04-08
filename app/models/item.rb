@@ -10,4 +10,8 @@ class Item < ApplicationRecord
   def add_tax_price
     (price * 1.08).floor
   end
+
+  def is_active_yn
+    is_active ? '販売中' : '販売停止中'
+  end
 end

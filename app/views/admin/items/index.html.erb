@@ -28,7 +28,7 @@
             <td><%= link_to item.name, admin_item_path(item.id), class: "text-dark" %></td>
             <td><%= item.price.to_s(:delimited) %></td>
             <td><%= item.genre.name %></td>
-            <td><%= item.is_active %></td>
+            <td><%= item.is_active_yn %></td>
           </tr>
         <% end %>
       </tbody>
