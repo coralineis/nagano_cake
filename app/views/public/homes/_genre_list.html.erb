@@ -1,4 +1,4 @@
-    <div class="col- mt-3">
+    <div class="col-3 mt-3">
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -8,7 +8,7 @@
         <tboddy>
           <% genres.each do |genre| %>
             <tr>
-              <td><%= genre.name %></td>
+              <td><%= link_to genre.name, genre_path(genre.id), class: "text-dark" %></td>
             </tr>
           <% end %>
         </tboddy>

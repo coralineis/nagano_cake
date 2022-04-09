@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create, :index, :show]
     post 'orders/confirm' => 'orders#confirm', as: 'confirm'
     resources :addresses, except: [:new, :show]
+    resources :genres, only: [:show]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

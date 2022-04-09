@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row justify-content-center my-3">
+    <h3 class="font-weight-bold">商品一覧</h3>
+  </div>
+  <div class="row">
+    <%= render "public/homes/genre_list", genres: @genres %>
+
+    <div class="col d-flex flex-wrap">
+    <% @genre.items.each do |item| %>
+      <%= link_to item_path(item.id), class: "text-dark" do %>
+        <ul>
+          <li style="list-style: none"><%= attachment_image_tag item, :image, :fill, 180, 120, format: "jpeg" %></li>
+          <li class="font-weight-bold mt-3" style="list-style: none"><%= item.name %></li>
+          <li class="font-weight-bold mt-3" style="list-style: none">￥<%= item.add_tax_price.to_s(:delimited) %></li>
+        </ul>
+      <% end %>
+    <% end %></div>
+  </div>
+</div>
