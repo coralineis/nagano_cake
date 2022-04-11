@@ -6,7 +6,7 @@
       <%= attachment_image_tag @item, :image, :fill, 250, 200, format: "jpeg" %>
     </div>
     <div class="col mt-3">
-      <%= form_with model: @item, url: cart_items_path, method: :post do |f| %>
+      <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
         <h5 class="font-weight-bold">
           <%= @item.name %>
           <%= f.hidden_field :item_id, :value => @item.id %>

@@ -18,7 +18,11 @@
             <td><%= customer.id %></td>
             <td><%= link_to customer.full_name, admin_customer_path(customer.id), class: "text-dark" %></td>
             <td><%= customer.email %></td>
-            <td><%= customer.is_deleted_tf %></td>
+            <% if customer.is_deleted_tf == "有効" %>
+              <td class="font-weight-bold text-success"><%= customer.is_deleted_tf %></td>
+            <% else %>
+              <td class="font-weight-bold text-dark"><%= customer.is_deleted_tf %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

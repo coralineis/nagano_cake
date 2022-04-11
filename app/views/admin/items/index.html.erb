@@ -28,7 +28,11 @@
             <td><%= link_to item.name, admin_item_path(item.id), class: "text-dark" %></td>
             <td><%= item.price.to_s(:delimited) %></td>
             <td><%= item.genre.name %></td>
-            <td><%= item.is_active_yn %></td>
+            <% if item.is_active_tf == "販売中"%>
+              <td class="font-weight-bold text-success"><%= item.is_active_tf %></td>
+            <% else %>
+              <td class="font-weight-bold text-dark"><%= item.is_active_tf %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

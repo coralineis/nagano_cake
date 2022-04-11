@@ -11,7 +11,7 @@ class Item < ApplicationRecord
     (price * 1.08).floor
   end
 
-  def is_active_yn
+  def is_active_tf
     is_active ? '販売中' : '販売停止中'
   end
 end
