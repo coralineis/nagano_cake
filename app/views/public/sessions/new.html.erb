@@ -12,11 +12,11 @@
          <tbody>
            <tr>
              <th><%= f.label :email, "メールアドレス" %></th>
-             <th><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "naganocake@email.com" %></th>
+             <th><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "naganocake@email.com", size: 30 %></th>
            </tr>
            <tr>
              <th><%= f.label :password, "パスワード" %></th>
-             <th><%= f.password_field :password, autocomplete: "current-password" %></th>
+             <th><%= f.password_field :password, autocomplete: "current-password", size: 30 %></th>
            </tr>
            <tr>
              <th></th>
