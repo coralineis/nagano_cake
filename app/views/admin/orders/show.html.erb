@@ -25,7 +25,7 @@
       </tr>
       <tr>
         <th>注文ステータス</th>
-        <%= form_with model: @order, url: admin_order_path, method: :patch do |f| %>
+        <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch do |f| %>
           <th>
             <%= f.select :status, Order.statuses_i18n.invert, {} %>
             <%= f.submit "更新", class: "btn btn-success ml-3" %>
@@ -48,13 +48,15 @@
           </tr>
         </thead>
         <tbody>
-          <% @order_details.each do |order_detail| %>
+          <% @order.items.each do |item| %>
             <tr>
-              <td><%= order_detail.item.name %></td>
-              <td><%= order_detail.price %></td>
-              <td><%= order_detail.amount %></td>
-              <td><%= %></td>
-              <%= form_with model: @order_detail, url: admin_order_path, method: :patch do |f| %>
+              <td><%= item.name %></td>
+              <td><%= item.add_tax_price.to_s(:delimited) %></td>
+              <td><%= @order_detail.amount %></td>
+              <td><%= (item.add_tax_price * @order_detail.amount).to_s(:delimited) %></td>
+              <% @total_payment += (item.add_tax_price * @order_detail.amount) %>
+
+              <%= form_with model: @order_detail, url: admin_order_detail_path(@order_detail.id), method: :patch do |f| %>
                 <td>
                   <%= f.select :making_status, OrderDetail.making_statuses_i18n.invert, {} %>
                   <%= f.submit "更新", class: "btn btn-success ml-3" %>
@@ -71,7 +73,7 @@
         <tbody>
           <tr>
             <th>商品合計</th>
-            <td><%=  %>円</td>
+            <td><%= @total_payment.to_s(:delimited) %>円</td>
           </tr>
           <tr>
             <th>送料</th>
@@ -79,7 +81,7 @@
           </tr>
           <tr>
             <th>請求金額合計</th>
-            <th><%= %>円</th>
+            <td><%= (@total_payment + @shipping_cost).to_s(:delimited) %>円</td>
           </tr>
         </tbody>
       </table>

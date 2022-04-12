@@ -70,9 +70,9 @@
           <% @order.items.each do |item| %>
             <tr>
               <th><%= item.name %></th>
-              <th><%= item.price.to_s(:delimited) %></th>
+              <th><%= item.add_tax_price.to_s(:delimited) %></th>
               <th><%= @order_detail.amount %></th>
-              <th><%= (item.price * @order_detail.amount).to_s(:delimited) %></th>
+              <th><%= (item.add_tax_price * @order_detail.amount).to_s(:delimited) %></th>
             </tr>
           <% end %>
         </tbody>
