@@ -43,6 +43,7 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = current_customer.orders
+    @shipping_cost = 800
   end
 
   def show
