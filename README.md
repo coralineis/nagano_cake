@@ -24,6 +24,6 @@ deviceを使用したログイン機能
 
 ## バージョン
 
-* Rails 
-* ruby 
+* Rails 6.1.5
+* ruby 2.6.3
 
