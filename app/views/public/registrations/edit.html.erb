@@ -3,7 +3,7 @@
     <h5><span class="bg-light font-weight-bold px-3">会員情報編集</span></h5>
   </div>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= form_with model: @customer, url: customers_path, method: :patch do |f| %>
     <%= render "public/shared/error_messages", resource: resource %>
 
     <table class="table table-borderless">
@@ -28,7 +28,7 @@
         </tr>
         <tr>
           <th><%= f.label :address, "住所" %></th>
-          <th><%= f.text_area :address %></th>
+          <th><%= f.text_field :address, size: 50 %></th>
         </tr>
         <tr>
           <th><%= f.label :telephone_number, "電話番号" %></th>
@@ -41,7 +41,7 @@
         <tr>
           <th></th>
           <th>
-            <%= link_to "編集内容を保存", my_page_path(current_customer), class: "btn btn-success px-5" %>
+            <%= f.submit "編集内容を保存", class: "btn btn-success px-5" %>
             <%= link_to "退会する", unsubscribe_path, class: "btn btn-danger px-3 ml-5" %>
           </th>
         </tr>
