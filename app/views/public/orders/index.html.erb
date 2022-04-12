@@ -24,7 +24,11 @@
             <%= order.address %><br>
             <%= order.name %>
           </th>
-          <th><%=  %></th>
+          <th>
+            <% order.items.each do |item| %>
+              <%= item.name %><br>
+            <% end %>
+          </th>
           <th><%= order.total_payment.to_s(:delimited) %></th>
           <th><%= order.status_i18n %></th>
           <th><%= link_to "表示する", order_path(order.id), class: "btn btn-primary" %></th>

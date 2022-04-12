@@ -27,7 +27,7 @@
           </tr>
           <tr>
             <th class="table-active">ステータス</th>
-            <th></th>
+            <th><%= @order.status_i18n %></th>
           </tr>
         </tbody>
       </table>
@@ -67,12 +67,12 @@
             </tr>
         </thead>
         <tbody>
-          <% @order_details.each do |order_detail| %>
+          <% @order.items.each do |item| %>
             <tr>
-              <th><%= order_detail.item.name %></th>
-              <th><%= order_detail.price.to_s(:delimited) %></th>
-              <th><%= order_detail.amount %></th>
-              <th><%= (order_detail.price * order_detail.amount).to_s(:delimited) %></th>
+              <th><%= item.name %></th>
+              <th><%= item.price.to_s(:delimited) %></th>
+              <th><%= @order_detail.amount %></th>
+              <th><%= (item.price * @order_detail.amount).to_s(:delimited) %></th>
             </tr>
           <% end %>
         </tbody>

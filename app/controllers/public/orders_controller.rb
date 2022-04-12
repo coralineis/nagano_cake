@@ -46,7 +46,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-    @order_details = Order.find(params[:id])
+    @order = Order.find(params[:id])
+    @order_detail = OrderDetail.find(params[:id])
     @shipping_cost = 800
   end
 
