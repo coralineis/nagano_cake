@@ -10,10 +10,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def after_sign_up_path_for(resource)
-    my_page_path(current_customer)
-  end
-
   def after_sign_in_path_for(resource)
     case resource
     when Customer

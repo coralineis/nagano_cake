@@ -40,6 +40,10 @@ class Public::RegistrationsController < Devise::RegistrationsController
 
   protected
 
+  def after_sign_up_path_for(resource)
+    my_page_path(current_customer)
+  end
+
   def update_resource(resource, params)
     resource.update_without_password(params)
   end
