@@ -9,10 +9,10 @@ class Admin::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     if @order.update(order_params)
-      @order.order_detail.update_all(making_status: 1) if @order.status == 1
+      @order.order_details.update_all(making_status: 1) if @order.status == "order_placed"
       redirect_to admin_order_path(@order.id)
     else
-    redirect_to admin_order_path(@order.id)
+      render admin_order_path(@order.id)
     end
   end
 
